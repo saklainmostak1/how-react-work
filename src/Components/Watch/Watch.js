@@ -1,22 +1,24 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Display from '../Display/Display';
 
 const Watch = () => {
-    const [ step, setSteps ] = useState(0)
+    const [ steps, setSteps ] = useState(0)
 
     const IncreseSteps = () => {
-        const stepCount = step + 1
+        const stepCount = steps + 1
         setSteps(stepCount)
     }
         useEffect(()=>{
-            console.log('hellow')
-        }, [])
+            console.log(steps)
+        }, [steps])
     return (
-        <div>
+        <div style={{border: '2px solid red', margin: '20px'}}>
             <h2>This is my smart watch</h2>
-            <h3>My Current Steps: {step}</h3>
+            <h3>My Current Steps: {steps}</h3>
             <button onClick={IncreseSteps}>Dowra...............</button>
+            <Display name='garmin' steps={steps}></Display>
         </div>
     );
 };
